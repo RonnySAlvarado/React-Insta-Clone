@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import dummyData from './dummy-data.js';
-import PostContainer from './components/PostContainer/PostContainer';
+import PostContainer from './components/PostContainer/PostContainer.js';
 
 class App extends Component {
   constructor() {
@@ -13,7 +13,7 @@ class App extends Component {
 
   render() {
     return (
-      <PostContainer data={this.state.data} />
+        <PostContainer data={this.state.data} />
     )
   }
 }

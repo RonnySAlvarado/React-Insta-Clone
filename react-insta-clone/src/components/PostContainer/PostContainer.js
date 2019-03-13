@@ -1,8 +1,12 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
+import './PostContainer.css';
 
 function PostContainer (props) {
-    return (props.data.map(eachPost => <CommentSection eachPost={eachPost} />)
+    return (
+        <div>
+            {props.data.map(eachPost => <CommentSection eachPost={eachPost} />)}
+        </div>
     )
 }
 

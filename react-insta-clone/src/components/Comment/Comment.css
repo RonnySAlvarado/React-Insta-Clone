@@ -1,0 +1,17 @@
+.commentContainer {
+    /* border: 1px solid red; */
+    display: flex;
+    align-items: baseline; 
+    font-size: 10px;
+    margin: 0;
+    line-height: 3px;
+}
+
+.commentContainer h3 {
+    font-weight: bold;
+}
+
+.commentContainer p {
+    margin-left: 5px;
+}
+
