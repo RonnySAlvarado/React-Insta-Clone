@@ -25,3 +25,8 @@
     height: 30px;
     width: 30px;
 }
+
+input {
+    width: 90%;
+    margin-left: 2%
+}

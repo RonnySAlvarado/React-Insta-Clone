@@ -5,7 +5,7 @@ import './PostContainer.css';
 function PostContainer (props) {
     return (
         <div>
-            {props.data.map(eachPost => <CommentSection eachPost={eachPost} />)}
+            {props.data.map(eachPost => <CommentSection eachPost={eachPost} inputHandler={props.inputHandler} input={props.input} />)}
         </div>
     )
 }

@@ -7,13 +7,20 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: dummyData
+      data: dummyData,
+      input: '',
     }
   }
 
+  inputHandler = (event) => {
+    this.setState ({ input: event.target.value });
+  }
+
+
   render() {
+    console.log(this.state.input);
     return (
-        <PostContainer data={this.state.data} />
+        <PostContainer data={this.state.data} inputHandler={this.inputHandler} input={this.state.input} />
     )
   }
 }

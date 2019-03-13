@@ -13,6 +13,7 @@ function CommentSection (props) {
             <div className="comment-section">
                 {(props.eachPost.comments.map(eachComment => <Comment eachComment={eachComment} />))}
             </div>
+            <input type="text" placeHolder="...add a comment" onChange={props.inputHandler} value={props.input}></input>
         </div>
     )
 };
