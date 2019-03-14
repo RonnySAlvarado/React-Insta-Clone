@@ -1,3 +1,4 @@
-/* .eachPostCard {
-    border: 1px solid black;
-} */
+.PostContainer {
+    margin: 20px auto;
+    width: 640px;
+}

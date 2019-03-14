@@ -2,11 +2,12 @@ import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
 import './PostContainer.css';
 import PropTypes from 'prop-types';
+import Post from '../Post/Post';
 
 function PostContainer (props) {
     return (
-        <div>
-            {props.data.map(eachPost => <CommentSection eachPost={eachPost} inputHandler={props.inputHandler} input={props.input} />)}
+        <div className="PostContainer">
+            {props.data.map(eachPost => <Post eachPost={eachPost} inputHandler={props.inputHandler} input={props.input} />)}
         </div>
     )
 }

@@ -9,5 +9,4 @@ function Comment (props) {
         </div>
     )
 }
-
 export default Comment;
