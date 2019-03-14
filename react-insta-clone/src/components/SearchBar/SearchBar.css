@@ -1,0 +1,13 @@
+.instagram-name-and-logo {
+    width: 200px;
+}
+
+.searchBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.searchBar input {
+    width: 200px;
+}
