@@ -6,8 +6,9 @@
 
 .container {
     margin: 20px auto;
-    border: 1px solid gray;
+    border: 1px solid lightgray;
     width: 640px;
+
 }
 
 .usernameHeader {
@@ -26,7 +27,18 @@
     width: 30px;
 }
 
+.likes {
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
 input {
     width: 90%;
     margin-left: 2%
+}
+
+.likes-and-comments .icons {
+    margin-left: 10px;
+    /* border: 1px solid red; */
 }
