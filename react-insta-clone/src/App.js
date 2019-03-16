@@ -13,10 +13,9 @@ class App extends Component {
     }
   }
 
-  inputHandler = (event) => {
-    this.setState ({ input: event.target.value });
+  inputHandler = event => {
+    this.setState ({ [event.target.name]: event.target.value });
   }
-
 
   render() {
     console.log(this.state.input);
