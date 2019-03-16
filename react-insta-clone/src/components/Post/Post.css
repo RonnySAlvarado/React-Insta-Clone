@@ -22,6 +22,7 @@
 .likes-and-comments .icons {
     margin-left: 10px;
     /* border: 1px solid red; */
+    cursor: pointer;
 }
 
 .likes {

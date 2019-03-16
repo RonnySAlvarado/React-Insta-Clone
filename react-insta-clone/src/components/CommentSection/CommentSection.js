@@ -25,11 +25,11 @@ class CommentSection extends React.Component {
     }
 
     render() {
-        console.log(this.state.totalComments);
+        // console.log(this.state.totalComments);
         return (
             <div className="comment-section">
 
-                {this.state.totalComments.map(eachComment => <Comment eachComment={eachComment} />)}
+                {this.state.totalComments.map(eachComment => <Comment eachComment={eachComment} key={this.props.index} />)}
 
                 <form onSubmit={this.addNewComment}>
                     <input 
