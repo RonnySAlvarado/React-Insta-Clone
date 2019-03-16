@@ -11,10 +11,11 @@ class CommentSection extends React.Component {
         }
     }
 
-    addNewComment = newComment => {
+    addNewComment = event => {
+        event.preventDefault();
         let comment = {
             username: 'Ronny',
-            text: newComment,
+            text: this.state.commentInput,
         }
         this.setState({ totalComments: [...this.state.totalComments, comment], commentInput: ''})
     }
@@ -23,13 +24,14 @@ class CommentSection extends React.Component {
         this.setState ({ commentInput: event.target.value });
     }
 
-    render(props) {
+    render() {
+        console.log(this.state.totalComments);
         return (
             <div className="comment-section">
 
-                {props.eachPost.comments.map(eachComment => <Comment eachComment={eachComment} />)}
+                {this.props.eachPost.comments.map(eachComment => <Comment eachComment={eachComment} />)}
 
-                <form onSubmit={() => this.addNewComment(this.state.commentInput)}>
+                <form onSubmit={this.addNewComment}>
                     <input 
                         type="text" 
                         placeholder="...add a comment" 

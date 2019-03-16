@@ -22,7 +22,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.input);
     return (
       <div className="App-Container">
         <SearchBar data={this.state.data} inputHandler={this.inputHandler} input={this.state.input} />
