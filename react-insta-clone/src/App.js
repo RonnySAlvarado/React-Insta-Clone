@@ -8,9 +8,13 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: dummyData,
+      data: [],
       input: '',
     }
+  }
+
+  componentDidMount () {
+    this.setState({ data: dummyData });
   }
 
   inputHandler = event => {
