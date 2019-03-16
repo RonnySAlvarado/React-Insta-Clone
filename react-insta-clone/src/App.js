@@ -26,7 +26,7 @@ class App extends Component {
     return (
       <div className="App-Container">
         <SearchBar data={this.state.data} inputHandler={this.inputHandler} input={this.state.input} />
-        <PostContainer data={this.state.data} inputHandler={this.inputHandler} input={this.state.input} />
+        <PostContainer data={this.state.data} />
       </div>
     )
   }

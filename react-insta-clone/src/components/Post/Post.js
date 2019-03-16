@@ -19,7 +19,7 @@ function Post (props) {
 
             <p className="likes">{props.eachPost.likes} likes</p>
 
-            <CommentSection eachPost={props.eachPost} index={props.index} inputHandler={props.inputHandler} input={props.input} />
+            <CommentSection eachPost={props.eachPost} index={props.index} />
         </div>
     )
 }
