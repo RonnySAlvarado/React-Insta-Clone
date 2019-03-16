@@ -6,7 +6,7 @@ class CommentSection extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            totalComments: props.eachPost.comments,
+            totalComments: this.props.eachPost.comments,
             commentInput: '',
         }
     }
@@ -15,8 +15,8 @@ class CommentSection extends React.Component {
         event.preventDefault();
         let comment = {
             username: 'Ronny',
-            text: this.state.commentInput,
-        }
+            text: this.state.commentInput
+          }
         this.setState({ totalComments: [...this.state.totalComments, comment], commentInput: ''})
     }
 
@@ -29,7 +29,7 @@ class CommentSection extends React.Component {
         return (
             <div className="comment-section">
 
-                {this.props.eachPost.comments.map(eachComment => <Comment eachComment={eachComment} />)}
+                {this.state.totalComments.map(eachComment => <Comment eachComment={eachComment} />)}
 
                 <form onSubmit={this.addNewComment}>
                     <input 

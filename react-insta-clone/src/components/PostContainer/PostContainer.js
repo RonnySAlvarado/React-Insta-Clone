@@ -6,7 +6,7 @@ import Post from '../Post/Post';
 function PostContainer (props) {
     return (
         <div className="PostContainer">
-            {props.data.map((eachPost, index) => <Post eachPost={eachPost} index={index} />)}
+            {props.data.map((eachPost, index) => <Post eachPost={eachPost} key={index} />)}
         </div>
     )
 }
