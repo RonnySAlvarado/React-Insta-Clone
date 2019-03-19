@@ -10,22 +10,35 @@ class App extends Component {
     this.state = {
       data: [],
       input: '',
+      filtered: []
     }
   }
 
   componentDidMount () {
-    this.setState({ data: dummyData });
+    this.setState({ data: dummyData, filtered: dummyData });
   }
 
-  inputHandler = event => {
-    this.setState ({ [event.target.name]: event.target.value });
+  inputHandler = (event) => {
+    this.setState ({ input: event.target.value });
+    this.searchHandler(event);
+  }
+    
+  searchHandler = (event) => {
+    let filteredArray = this.state.data.filter(eachUser => {
+      if (eachUser.username.toLowerCase().includes(event.target.value.toLowerCase())){
+        return eachUser;
+      }
+    })
+    this.setState({ filtered: filteredArray, input: event.target.value })
   }
 
   render() {
+    // console.log(this.state.input);
+    // console.log(this.state.filtered);
     return (
       <div className="App-Container">
-        <SearchBar data={this.state.data} inputHandler={this.inputHandler} input={this.state.input} />
-        <PostContainer data={this.state.data} />
+        <SearchBar inputHandler={this.inputHandler} input={this.state.input} />
+        <PostContainer data={this.state.filtered} />
       </div>
     )
   }
