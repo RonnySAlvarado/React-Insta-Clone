@@ -14,7 +14,7 @@ class CommentSection extends React.Component {
     addNewComment = event => {
         event.preventDefault();
         let comment = {
-            username: 'Ronny',
+            username: localStorage.getItem('username'),
             text: this.state.commentInput
           }
         this.setState({ totalComments: [...this.state.totalComments, comment], commentInput: ''})
