@@ -15,9 +15,13 @@ class CommentSection extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            totalComments: this.props.eachPost.comments,
+            totalComments: [],
             commentInput: '',
         }
+    }
+
+    componentDidMount () {
+        this.setState ({ totalComments: this.props.eachPost.comments })
     }
 
     addNewComment = event => {

@@ -27,8 +27,9 @@ class PostsPage extends React.Component {
           if (eachUser.username.toLowerCase().includes(event.target.value.toLowerCase())){
             return eachUser;
           }
+          // if (this.state.input === '') this.setState ({ filtered: this.state.data }) 
         })
-        this.setState({ filtered: filteredArray, input: event.target.value })
+        this.setState({ filtered: filteredArray })
     }
 
     render(){
