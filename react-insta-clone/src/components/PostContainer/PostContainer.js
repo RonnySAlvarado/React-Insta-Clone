@@ -1,13 +1,19 @@
 import React from 'react';
-import './PostContainer.css';
 import PropTypes from 'prop-types';
 import Post from '../Post/Post';
+import styled from 'styled-components';
+
+const PostContainerStyle = styled.div`
+    margin: 20px auto;
+    width: 640px;
+`;
+
 
 function PostContainer (props) {
     return (
-        <div className="PostContainer">
+        <PostContainerStyle>
             {props.data.map((eachPost, index) => <Post eachPost={eachPost} key={index} />)}
-        </div>
+        </PostContainerStyle>
     )
 }
 

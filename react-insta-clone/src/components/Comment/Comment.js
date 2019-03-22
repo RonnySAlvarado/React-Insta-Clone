@@ -1,12 +1,26 @@
 import React from 'react';
-import './Comment.css';
+import styled from 'styled-components';
+
+const CommentContainerStyle = styled.div`
+    display: flex;
+    align-items: baseline; 
+    font-size: 10px;
+    margin: 0;
+    line-height: 3px;
+    h3 {
+        font-weight: bold;
+    }
+    p {
+        margin-left: 5px;
+    }
+`;
 
 function Comment (props) {
     return (
-        <div className="commentContainer">
+        <CommentContainerStyle>
             <h3>{props.eachComment.username}</h3>
             <p>{props.eachComment.text}</p>
-        </div>
+        </CommentContainerStyle>
     )
 }
 export default Comment;

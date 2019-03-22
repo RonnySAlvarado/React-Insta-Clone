@@ -1,6 +1,15 @@
 import React from 'react';
 import Comment from '../Comment/Comment';
-import './CommentSection.css';
+import styled from 'styled-components';
+
+const CommentSectionStyle = styled.div`
+    margin: 0 auto;
+    width: 95%;
+    input {
+        width: 90%;
+        margin-left: 2%
+    }
+`;
 
 class CommentSection extends React.Component {
     constructor(props){
@@ -27,7 +36,7 @@ class CommentSection extends React.Component {
     render() {
         // console.log(this.state.totalComments);
         return (
-            <div className="comment-section">
+            <CommentSectionStyle>
 
                 {this.state.totalComments.map(eachComment => <Comment eachComment={eachComment} key={this.props.index} />)}
 
@@ -40,7 +49,7 @@ class CommentSection extends React.Component {
                     </input>
                 </form>
 
-            </div>
+            </CommentSectionStyle>
         )
     }
 }
