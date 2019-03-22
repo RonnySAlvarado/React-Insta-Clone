@@ -1,10 +1,30 @@
 import React from 'react';
 import './SearchBar.css';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const SearchBarStyle = styled.div`
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    border-bottom: 1px solid gray;
+    margin: 20px auto;
+    .instagram-name-and-logo {
+            width: 200px;
+        }
+    input {
+            width: 200px;
+        }
+    .icons {
+            margin: 0 15px;
+        }
+`;
+
+//Not necessary to be a styled component, but doing so for practice
 
 function SearchBar (props) {
     return (
-        <div className="searchBar">
+        <SearchBarStyle>
             <img className="instagram-name-and-logo" src="./instagram-font-name-5.png" alt="instagram logo and name"></img>
 
             <input type="text" placeholder="Search" onChange={props.inputHandler} value={props.input}></input>
@@ -14,7 +34,7 @@ function SearchBar (props) {
                 <img className="icons" src="./icons8-heart-32.png" alt="heart logo"></img>
                 <img className="icons" src="./icons8-customer-32.png" alt="profile logo"></img>
             </div>
-        </div>
+        </SearchBarStyle>
     )
 }
 
