@@ -1,5 +1,4 @@
 import React from 'react';
-import CommentSection from '../CommentSection/CommentSection';
 import styled from 'styled-components';
 
 const PostStyle = styled.div`
@@ -30,6 +29,24 @@ const PostStyle = styled.div`
         font-weight: bold;
         margin-left: 15px;
     }
+    .comments {
+        margin: 0 auto;
+        width: 95%;
+        display: flex;
+        align-items: baseline; 
+        font-size: 10px;
+        line-height: 3px;
+        h3 {
+            font-weight: bold;
+        }
+        p {
+            margin-left: 5px;
+        }
+    }
+    form {
+        width: 90%;
+        margin-left: 2%
+    }
 `;
 
 class Post extends React.Component {
@@ -38,7 +55,26 @@ class Post extends React.Component {
         this.state = {
             like: this.props.eachPost.likes,
             liked: false,
+            totalComments: [],
+            commentInput: '',
         }
+    }
+
+    componentDidMount () {
+        this.setState ({ totalComments: this.props.eachPost.comments })
+    }
+
+    addNewComment = event => {
+        event.preventDefault();
+        let comment = {
+            username: localStorage.getItem('username'),
+            text: this.state.commentInput
+          }
+        this.setState({ totalComments: [...this.state.totalComments, comment], commentInput: ''})
+    }
+
+    commentInputHandler = event => {
+        this.setState ({ commentInput: event.target.value });
     }
 
     likeHandler = () => {
@@ -70,8 +106,24 @@ class Post extends React.Component {
                 </div>
     
                 <p className="likes">{this.state.like} likes</p>
-    
-                <CommentSection eachPost={this.props.eachPost} key={this.props.index} />
+
+                {this.state.totalComments.map(eachComment => {
+                    return (
+                    <div className="comments">
+                        <h3>{eachComment.username}</h3>
+                        <p>{eachComment.text}</p>
+                    </div>
+                    )
+                })}
+
+                <form onSubmit={this.addNewComment}>
+                    <input 
+                        type="text" 
+                        placeholder="...add a comment" 
+                        onChange={this.commentInputHandler} 
+                        value={this.state.commentInput}>
+                    </input>
+                </form>
 
             </PostStyle>
 

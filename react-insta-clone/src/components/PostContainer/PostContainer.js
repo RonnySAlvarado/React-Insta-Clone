@@ -12,7 +12,7 @@ const PostContainerStyle = styled.div`
 function PostContainer (props) {
     return (
         <PostContainerStyle>
-            {props.data.map((eachPost, index) => <Post eachPost={eachPost} key={index} />)}
+            {props.data.map((eachPost) => <Post eachPost={eachPost} />)}
         </PostContainerStyle>
     )
 }
