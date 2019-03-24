@@ -75,7 +75,7 @@ class Login extends React.Component {
             <LoginContainer>
                 <img className="instagram-name-and-logo" src="./instagram-font-name-5.png" alt="instagram logo and name"></img>
                 <input type='text' placeholder='Username' onChange={this.usernameInput} value={this.state.username}></input>
-                <input type='text' placeholder='Password' onChange={this.passwordInput} value={this.state.password}></input>
+                <input type='password' placeholder='Password' onChange={this.passwordInput} value={this.state.password}></input>
                 <button onClick={this.loginHandler}>Log In</button>
             </LoginContainer>
         )
