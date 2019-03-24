@@ -2,19 +2,23 @@ import React from 'react';
 import dummyData from '../../dummy-data';
 import SearchBar from '../SearchBar/SearchBar';
 import PostContainer from '../PostContainer/PostContainer';
+import Post from '../Post/Post';
 
 class PostsPage extends React.Component {
     constructor() {
         super();
         this.state = {
           data: [],
+          filteredUsernames: [],
+          usernameArray: [],
           input: '',
-          filtered: []
         }
       }
 
     componentDidMount () {
-        this.setState({ data: dummyData, filtered: dummyData });
+      let usernames = dummyData.map(eachPost => eachPost.username);
+      // let posts = dummyData.map((eachPost, index) => <Post usernames={usernames} eachPost={eachPost} key={index}/>)
+      this.setState({ data: dummyData, filteredUsernames: usernames, usernameArray: usernames });
     }
     
     inputHandler = (event) => {
@@ -23,20 +27,19 @@ class PostsPage extends React.Component {
     }
         
     searchHandler = (event) => {
-        let filteredArray = this.state.data.filter(eachUser => {
-          if (eachUser.username.toLowerCase().includes(event.target.value.toLowerCase())){
-            return eachUser;
+        let filteredArray = this.state.usernameArray.filter(username => {
+          if (username.toLowerCase().includes(event.target.value.toLowerCase())){
+            return username;
           }
-          // if (this.state.input === '') this.setState ({ filtered: this.state.data }) 
         })
-        this.setState({ filtered: filteredArray })
+        this.setState({ filteredUsernames: filteredArray })
     }
 
     render(){
         return (
             <div>
                 <SearchBar inputHandler={this.inputHandler} input={this.state.input} />
-                <PostContainer data={this.state.filtered} />
+                <PostContainer data={this.state.data} filteredUsernames={this.state.filteredUsernames} />
             </div>
         )
     }

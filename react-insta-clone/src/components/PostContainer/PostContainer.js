@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Post from '../Post/Post';
 import styled from 'styled-components';
+import Post from '../Post/Post';
 
 const PostContainerStyle = styled.div`
     margin: 20px auto;
@@ -12,7 +12,7 @@ const PostContainerStyle = styled.div`
 function PostContainer (props) {
     return (
         <PostContainerStyle>
-            {props.data.map((eachPost) => <Post eachPost={eachPost} />)}
+            {props.data.map((eachPostObject, index) => <Post eachPostObject={eachPostObject} filteredUsernames={props.filteredUsernames} key={index} /> )}
         </PostContainerStyle>
     )
 }

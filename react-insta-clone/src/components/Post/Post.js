@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const PostStyle = styled.div`
-    border: 1px solid lightgray;
+    display: block;
     margin-bottom: 20px;
     .usernameHeader {
         display: flex;
@@ -44,8 +44,12 @@ const PostStyle = styled.div`
         }
     }
     form {
-        width: 90%;
-        margin-left: 2%
+        width: 100%;
+        input {
+            width: 99.5%;
+            border: 1px solid white;
+            border-top: 1px solid lightgray;
+        }
     }
 `;
 
@@ -53,15 +57,11 @@ class Post extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            like: this.props.eachPost.likes,
+            like: this.props.eachPostObject.likes,
             liked: false,
-            totalComments: [],
+            totalComments: this.props.eachPostObject.comments,
             commentInput: '',
         }
-    }
-
-    componentDidMount () {
-        this.setState ({ totalComments: this.props.eachPost.comments })
     }
 
     addNewComment = event => {
@@ -89,16 +89,29 @@ class Post extends React.Component {
     render(){
         let i = 0;
         {this.state.liked ? i=30 : i=32} //2 heart images in public folder with ids very similiar to one another using 30 and 32 in their value
+        let hidden = {
+            display: 'none',
+        };
+
+        if (this.props.filteredUsernames.includes(this.props.eachPostObject.username)) {
+            hidden = {
+                display: 'block',
+                border: '1px solid lightgray'
+            }
+        }
+        
+        console.log(this.props.filteredUsernames);
         return (
 
             <PostStyle>
 
+            <div style={hidden}>
                 <div className="usernameHeader">
-                    <img src={this.props.eachPost.thumbnailUrl} alt="thumbnail" />
-                    <h2>{this.props.eachPost.username}</h2>
+                    <img src={this.props.eachPostObject.thumbnailUrl} alt="thumbnail" />
+                    <h2>{this.props.eachPostObject.username}</h2>
                 </div>
     
-                <img src={this.props.eachPost.imageUrl} alt="imageurl" />
+                <img src={this.props.eachPostObject.imageUrl} alt="imageurl" />
     
                 <div className="likes-and-comments">
                     <img onClick={this.likeHandler} className="icons" src={`./icons8-heart-${i}.png`} alt="heart logo" />
@@ -119,11 +132,12 @@ class Post extends React.Component {
                 <form onSubmit={this.addNewComment}>
                     <input 
                         type="text" 
-                        placeholder="...add a comment" 
+                        placeholder="   ...add a comment" 
                         onChange={this.commentInputHandler} 
                         value={this.state.commentInput}>
                     </input>
                 </form>
+            </div>
 
             </PostStyle>
 
