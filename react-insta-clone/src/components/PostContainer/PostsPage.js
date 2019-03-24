@@ -17,7 +17,6 @@ class PostsPage extends React.Component {
 
     componentDidMount () {
       let usernames = dummyData.map(eachPost => eachPost.username);
-      // let posts = dummyData.map((eachPost, index) => <Post usernames={usernames} eachPost={eachPost} key={index}/>)
       this.setState({ data: dummyData, filteredUsernames: usernames, usernameArray: usernames });
     }
     
@@ -34,11 +33,16 @@ class PostsPage extends React.Component {
         })
         this.setState({ filteredUsernames: filteredArray })
     }
+    
+    logout = () => {
+      localStorage.clear();
+      window.location.reload();
+    }
 
     render(){
         return (
             <div>
-                <SearchBar inputHandler={this.inputHandler} input={this.state.input} />
+                <SearchBar inputHandler={this.inputHandler} input={this.state.input} logout={this.logout} />
                 <PostContainer data={this.state.data} filteredUsernames={this.state.filteredUsernames} />
             </div>
         )

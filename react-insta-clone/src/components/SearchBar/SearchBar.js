@@ -14,9 +14,20 @@ const SearchBarStyle = styled.div`
     input {
             width: 200px;
         }
-    .icons {
+    .searchBarIcons {
+        display: flex;
+        .icons {
             margin: 0 15px;
         }
+        button {
+            width: 100px;
+            cursor: pointer;
+            border-radius: 10px;
+            color: white;
+            background: pink;
+        }
+
+    }
 `;
 
 //Not necessary to be a styled component, but doing so for practice
@@ -32,6 +43,7 @@ function SearchBar (props) {
                 <img className="icons" src="./icons8-compass-32.png" alt="compass logo"></img>
                 <img className="icons" src="./icons8-heart-32.png" alt="heart logo"></img>
                 <img className="icons" src="./icons8-customer-32.png" alt="profile logo"></img>
+                <button onClick={props.logout}>Log Out</button>
             </div>
         </SearchBarStyle>
     )
